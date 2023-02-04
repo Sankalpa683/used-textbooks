@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>MediaBook</title>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+nav{
+    height:70px;
+    width:100%;
+    padding: 0 2rem;
+    display:flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0px 1px 3px #ccc;
+    position:sticky;
+    top:0;
+    z-index:99;
+}
+
+nav .nav-left, nav .nav-right{
+    display:flex;
+    align-items: center;
+}
+
+nav .nav-left > img{
+    width:40px;
+}
+
+nav .nav-left > input{
+    height:40px;
+    padding:5px 10px;
+    border:none;
+    border-radius: 25px;
+    outline:none;
+    background-color: #eee;
+    margin-left: 10px;
+}
+
+nav .nav-middle{
+    display:flex;
+    align-items:flex-end;
+    padding-bottom: 5px;
+}
+
+nav .nav-middle a{
+    text-decoration: none;
+    color:#333;
+    padding:10px;
+    margin:0px 10px;
+}
+
+nav .nav-middle a.active{
+    color:royalblue;
+    position:relative;
+}
+
+nav .nav-middle a.active::after{
+    content:'';
+    width:100%;
+    height:3px;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background:royalblue;
+}
+
+nav .nav-middle a > i{
+    font-size: 25px;
+}
+
+nav .nav-right .profile, .container .left-panel .profile{
+    background: url('./images/dp.jpg');
+    height:30px;
+    width:30px;
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav .nav-right a{
+    text-decoration: none;
+    color:#333;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    background:#eee;
+    display:grid;
+    place-items: center;
+    margin-left:1rem;
+}
+
+nav .nav-right a > i{
+    font-size:18px;
+}
+
+
+.container{
+    background:#eee;
+    display:flex;
+}
+
+.container .left-panel, .container .right-panel{
+    position: sticky;
+    top:70px;
+    width:250px;
+    height:calc(100vh - 70px);
+}
+
+.container .left-panel ul{
+    padding:10px 0px;
+}
+
+.container .left-panel ul li{
+    list-style: none;
+    display: flex;
+    padding:.7rem 1rem;
+    align-items: center;
+    transition: .3s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container .left-panel ul li:hover{
+    background:#ddd;
+}
+
+.container .left-panel ul li > p{
+    margin-left: 10px;
+}
+
+.container .left-panel ul li > i{
+    font-size:20px;
+    color:slateblue;
+}
+
+.container .left-panel ul li > i.fa-calendar-week{
+    color:tomato;
+}
+
+.container .left-panel ul li i.fa-briefcase{
+    color:green;
+}
+
+.container .left-panel ul li i.fa-star{
+    color:yellowgreen;
+}
+
+.container .left-panel ul li i.fa-hands-helping{
+    color:indianred;
+}
+
+.container .left-panel .footer-links{
+    padding:5px 1rem;
+}
+
+.container .left-panel .footer-links a{
+    text-decoration: none;
+    color:#333;
+    font-size:12px;
+}
+
+.middle-panel{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.middle-panel .story-section{
+    display:flex;
+    padding:1rem;
+}
+
+.middle-panel .story-section .story{
+    width:120px;
+    height:200px;
+    border-radius: 10px;
+    position: relative;
+    overflow:hidden;
+    cursor: pointer;
+    margin:0px 5px;
+    box-shadow: 0 0 5px 5px #ddd;
+    background:#fff;
+}
+
+.middle-panel .story-section .story > img{
+    height:100%;
+    transition:.3s ease-in;
+}
+
+.middle-panel .story-section .story:hover > img{
+    transform:scale(1.05);
+}
+
+.middle-panel .story-section .story .dp-container{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    overflow:hidden;
+    position:absolute;
+    top:10px;
+    left:10px;
+    border:royalblue 4px solid; 
+}
+
+.middle-panel .story-section .story .dp-container > img{
+    width:100%;
+    height:100%;
+}
+
+.middle-panel .story-section .story .name{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    padding:5px;
+    color:#fff;
+    font-weight:bold;
+}
+
+.middle-panel .story-section .story.create .dp-image{
+    height:80%;
+    overflow:hidden;
+}
+
+.middle-panel .story-section .story.create .dp-image img{
+    width:100%;
+}
+
+.middle-panel .story-section .story.create .dp-container{
+    top:70%;
+    left:50%;
+    transform: translateX(-50%);
+    display:grid;
+    place-items: center;
+    background:royalblue;
+    border:4px solid #fff;
+}
+
+.middle-panel .story-section .story.create .dp-container i{
+    color: #fff;
+}
+
+.middle-panel .story-section .story.create .name{
+    color: #000;
+    font-size:15px;
+    left:10px;
+}
+
+.post{
+    width:550px;
+    background:#fff;
+    border-radius:10px;
+    padding:10px;
+    margin:10px;
+}
+
+.post .post-top{
+    display:flex;
+    align-items: center;
+    padding:10px;
+}
+
+.post .post-top .dp{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    overflow:hidden;
+}
+
+.post .post-top .dp > img{
+    width:100%;
+    cursor:pointer;
+}
+
+.post .post-top .post-info{
+    margin-left:10px;    
+    font-weight: bold;
+}
+
+.post .post-top .post-info .name{
+    cursor:pointer;
+    font-size:16px;
+}
+
+.post .post-top .post-info .time{
+    font-size:12px;
+    cursor:pointer;
+}
+
+.post .post-top i{
+    margin-left:auto;
+    cursor: pointer;
+}
+
+.post .post-top > input{
+    height:40px;
+    padding:5px 10px;
+    border-radius:25px;
+    outline:none;
+    border:none;
+    flex:1;
+    background:#eee;
+    margin-left:10px;
+}
+
+.post .post-content{
+    font-size:16px;
+    font-weight:normal;
+    padding:10px;
+}
+
+.post .post-content > img{
+    width:100%;
+    margin:5px 0px;
+}
+
+.post .post-bottom{
+    box-shadow: 1px solid #ddd;
+    display:flex;
+    justify-content: space-between;
+    padding:5px 5px 0px 5px;
+}
+
+.post .post-bottom .action{
+    padding:10px;
+    border-radius:10px;
+    transition: .3s ease-in;
+    cursor: pointer;
+}
+
+.post .post-bottom .action:hover{
+    background:#eee;
+}
+
+.post.create .post-bottom > .action{
+    color:#d74;
+}
+
+.container .right-panel{
+    padding:1rem;
+}
+
+.right-panel .pages-section,
+.right-panel .friends-section{
+    margin:1rem 0px;
+}
+
+.right-panel .pages-section h4,
+.right-panel .friends-section h4{
+    margin-bottom:10px;
+}
+
+.right-panel .pages-section .page,
+.right-panel .friends-section .friend{
+    display: flex;
+    align-items:center;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+    border-radius: 5px;
+    padding:7px 10px;
+    color:#333;
+}
+
+.right-panel .pages-section .page:hover,
+.right-panel .friends-section .friend:hover{
+    background:#ddd;
+}
+
+.right-panel .pages-section .page > .dp,
+.right-panel .friends-section .friend > .dp{
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    overflow:hidden;
+    cursor: pointer;
+}
+
+.right-panel .pages-section .page > .dp > img, 
+.right-panel .friends-section .friend > .dp > img{
+    width:100%;
+}
+
+.right-panel .pages-section .name, .right-panel .friends-section .name{
+    font-size:18px;
+    cursor:pointer;
+    margin-left:8px;
+}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="./images/logo.png" alt="Logo">
+            <input type="text" placeholder="Search Mediabook..">
+        </div>
+
+        <div class="nav-middle">
+            <a href="#" class="active">
+                <i class="fa fa-home"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-user-friends"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-play-circle"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-users"></i>
+            </a>
+        </div>
+
+        <div class="nav-right">
+            <span class="profile"></span>
+
+            <a href="#">
+                <i class="fa fa-bell"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="left-panel">
+            <ul>
+                <li>
+                    <span class="profile"></span>
+                    <p>Aashish Panthi</p>
+                </li>
+                <li>
+                    <i class="fa fa-user-friends"></i>
+                    <p>Friends</p>
+                </li>
+                <li>
+                    <i class="fa fa-play-circle"></i>
+                    <p>Videos</p>
+                </li>
+                <li>
+                    <i class="fa fa-flag"></i>
+                    <p>Pages</p>
+                </li>
+                <li>
+                    <i class="fa fa-users"></i>
+                    <p>Groups</p>
+                </li>
+                <li>
+                    <i class="fa fa-bookmark"></i>
+                    <p>Bookmark</p>
+                </li>
+                <li>
+                    <i class="fab fa-facebook-messenger"></i>
+                    <p>Inbox</p>
+                </li>
+                <li>
+                    <i class="fas fa-calendar-week"></i>
+                    <p>Events</p>
+                </li>
+                <li>
+                    <i class="fa fa-bullhorn"></i>
+                    <p>Ads</p>
+                </li>
+                <li>
+                    <i class="fas fa-hands-helping"></i>
+                    <p>Offers</p>
+                </li>
+                <li>
+                    <i class="fas fa-briefcase"></i>
+                    <p>Jobs</p>
+                </li>
+                <li>
+                    <i class="fa fa-star"></i>
+                    <p>Favourites</p>
+                </li>
+            </ul>
+
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Advance</a>
+                <a href="#">More</a>
+            </div>
+        </div>
+
+
+        <div class="middle-panel">
+
+            <div class="story-section">
+
+                <div class="story create">
+                    <div class="dp-image">
+                        <img src="./images/dp.jpg" alt="Profile pic">
+                    </div>
+                    <span class="dp-container">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                    <span class="name">Create Story</span>
+                </div>
+
+
+                <div class="story">
+                    <img src="./images/model.jpg" alt="Anuska's story">
+                    <div class="dp-container">
+                        <img src="./images/girl.jpg" alt="">
+                    </div>
+                    <p class="name">Anuska Sharma</p>
+                </div>
+
+                <div class="story">
+                    <img src="./images/boy.jpg" alt="Story image">
+                    <span class="dp-container">
+                        <img src="./images/dp.jpg" alt="Profile pic">
+                    </span>
+                    <span class="name">Gaurav Gall</span>
+                </div>
+
+                <div class="story">
+                    <img src="./images/mountains.jpg" alt="Story image">
+                    <span class="dp-container">
+                        <img src="./images/boy.jpg" alt="Profile pic">
+                    </span>
+                    <span class="name">Priyank Saksena</span>
+                </div>
+
+                <div class="story">
+                    <img src="./images/shoes.jpg" alt="Story image">
+                    <span class="dp-container">
+                        <img src="./images/model.jpg" alt="Profile pic">
+                    </span>
+                    <span class="name">Pragati Adhikari</span>
+                </div>
+            </div>
+
+            <div class="post create">
+                <div class="post-top">
+                    <div class="dp">
+                        <img src="./images/girl.jpg" alt="">
+                    </div>
+                    <input type="text" placeholder="What's on your mind, Aashish ?" />
+                </div>
+                
+                <div class="post-bottom">
+                    <div class="action">
+                        <i class="fa fa-video"></i>
+                        <span>Live video</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-image"></i>
+                        <span>Photo/Video</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-smile"></i>
+                        <span>Feeling/Activity</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-top">
+                    <div class="dp">
+                        <img src="./images/girl.jpg" alt="">
+                    </div>
+                    <div class="post-info">
+                        <p class="name">Anuska Sharma</p>
+                        <span class="time">12 hrs ago</span>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+
+                <div class="post-content">
+                    Roses are red <br>
+                    Violets are blue <br>
+                    I'm ugly & you are too😏
+                </div>
+                
+                <div class="post-bottom">
+                    <div class="action">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </div>
+                    <div class="action">
+                        <i class="far fa-comment"></i>
+                        <span>Comment</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-share"></i>
+                        <span>Share</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-top">
+                    <div class="dp">
+                        <img src="./images/dp.jpg" alt="">
+                    </div>
+                    <div class="post-info">
+                        <p class="name">Ramesh GC</p>
+                        <span class="time">2 days ago</span>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+
+                <div class="post-content">
+                    Mountains are so cool
+                    <img src="images/mountains.jpg" />
+                </div>
+                
+                <div class="post-bottom">
+                    <div class="action">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </div>
+                    <div class="action">
+                        <i class="far fa-comment"></i>
+                        <span>Comment</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-share"></i>
+                        <span>Share</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-top">
+                    <div class="dp">
+                        <img src="./images/boy.jpg" alt="">
+                    </div>
+                    <div class="post-info">
+                        <p class="name">Priyank Saksena</p>
+                        <span class="time">1 week ago</span>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="post-content">
+                    Happy birthday dear
+                    <img src="./images/girl_with_light.jpg" alt="Mountains">
+                </div>
+                <div class="post-bottom">
+                    <div class="action">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </div>
+                    <div class="action">
+                        <i class="far fa-comment"></i>
+                        <span>Comment</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-share"></i>
+                        <span>Share</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-top">
+                    <div class="dp">
+                        <img src="./images/model.jpg" alt="">
+                    </div>
+                    <div class="post-info">
+                        <p class="name">Pragati Adhikari</p>
+                        <span class="time">5 mins ago</span>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="post-content">
+                    Hey, everybody! My new shoes are here
+                    <img src="./images/shoes.jpg" alt="Shoes">
+                </div>
+                <div class="post-bottom">
+                    <div class="action">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Like</span>
+                    </div>
+                    <div class="action">
+                        <i class="far fa-comment"></i>
+                        <span>Comment</span>
+                    </div>
+                    <div class="action">
+                        <i class="fa fa-share"></i>
+                        <span>Share</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right-panel">
+            <div class="pages-section">
+                <h4>Your pages</h4>
+                <a class='page' href="#">
+                    <div class="dp">
+                        <img src="./images/logo.png" alt="">
+                    </div>
+                    <p class="name">Cody</p>
+                </a>
+
+                <a class='page' href="#">
+                    <div class="dp">
+                        <img src="./images/dp.jpg" alt="">
+                    </div>
+                    <p class="name">Cody Tutorials</p>
+                </a>
+            </div>
+
+            <div class="friends-section">
+                <h4>Friends</h4>
+                <a class='friend' href="#">
+                    <div class="dp">
+                        <img src="./images/dp.jpg" alt="">
+                    </div>
+                    <p class="name">Henry Mosely</p>
+                </a>
+
+                <a class='friend' href="#">
+                    <div class="dp">
+                        <img src="./images/shoes.jpg" alt="">
+                    </div>
+                    <p class="name">George</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/boy.jpg" alt="">
+                    </div>
+                    <p class="name">Aakash Malhotra</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/model.jpg" alt="">
+                    </div>
+                    <p class="name">Ragini Khanna</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/boy.jpg" alt="">
+                    </div>
+                    <p class="name">Justin Bieber</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/dp.jpg" alt="">
+                    </div>
+                    <p class="name">Ramesh GC</p>
+                </a>
+
+                <a class="friend" href="#">
+                    <div class="dp">
+                        <img src="./images/model.jpg" alt="">
+                    </div>
+                    <p class="name">Sajita Gurung</p>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

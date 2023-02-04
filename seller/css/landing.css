@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+	background-color: #f0f2f5;
+}
+/*nav bar css starts*/
+.nav-bar{
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	display: flex;
+	padding: 24px;
+	justify-content: space-between;
+}
+.nav-bar .logo{
+	float: left;
+	padding-left: 10px;
+}
+.nav-bar .logo img{
+	width: 200px;
+}
+.nav-bar .nav-links{
+	padding-right: 10px;
+	line-height: 1px;
+}
+.nav-bar .nav-links li{
+	float: right;
+	list-style: none;
+	padding: 0px 10px;
+}
+.nav-bar .nav-links a{
+	text-decoration: none;
+	background-color: #0160E7;
+	padding: 10px 20px;
+	font-weight: bolder;
+	color: #fff;
+	border-radius: 20px;
+	transition: 0.10s;
+}
+.nav-bar .nav-links a:hover{
+	background-color: #fff;
+	color: #0160E7;
+	border: 2px solid #0160E7; 
+}
+
+@media screen and (max-width: 559px){
+	.nav-bar .nav-links{
+		display: none;
+	}
+}
+/*nav bar css end*/
+
+/*home page css starts*/
+.about-text{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 20px;
+	margin: 60px 0px;
+}
+.about-text .image img{
+	width: 500px;
+	margin-right: 40px;
+}
+.header-text{
+	padding: 30px;
+}
+.header-text h1{
+	font-size: 50px;
+	font-weight: 700;
+}
+.header-text p{
+	font-size: 17px;
+}
+.header-text .home-button a{
+	padding: 10px 30px;
+	font-size: 20px;
+	/*font-weight: bold;*/
+    color: rgb(255, 255, 255);
+	background-color: #fe4c1c;
+	border: none;
+	border-radius: 2rem;
+	cursor: pointer;
+	transition: 0.10s;
+	text-decoration: none;
+	-webkit-box-shadow: 8px 8px 18px 0px rgb(254 76 28 / 30%);
+}
+.header-text .home-button a:hover{
+	background-color: rgb(255, 255, 255);
+	color: #fe4c1c;
+	border: 2px solid #fe4c1c;
+}
+
+@media screen and (max-width: 1470px){
+	.about-text .image img{
+		display: none;
+	}
+}
+/*home page css ends*/
+
+/*container section start*/
+#container{
+	box-shadow: 8px 8px 30px 0px rgb(42 67 113 / 15%);
+	background-color: #fff;
+	padding: 30px 10px;
+}
+.container-box{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.container-box .box-wrapper-1{
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 8px 8px 30px 0px rgb(42 67 113 / 15%);
+	margin: 20px;
+	transition: 0.14s;
+}
+.container-box .box-wrapper-1:hover{
+	transform: translate(0, -10px);
+	background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 50%, #ffffff 100%);
+	color: #fff;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+.container-box .box-wrapper-1 h1{
+	font-size: 30px;
+	font-weight: bolder;
+	transition: 0.20s;
+}
+.container-box .box-wrapper-1 p{
+	font-size: 17px;
+	transition: 0.20s;
+}
+/*container section css ends*/
+/*education section cssstarts*/
+#education{
+	background-color: #0049B1;
+    background-image: url(https://bugv.io/wp-content/uploads/2020/02/bg-footer-home5-1.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+	padding: 120px 70px;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.education-header h1{
+	font-size: 50px;
+	text-transform: capitalize;
+	font-weight: bolder;
+	color: #fff;
+}
+.education-header .button-anchor a{
+	padding: 13px 25px;
+	color: rgb(255, 255, 255);
+	background-color: #fe4c1c;
+	-webkit-box-shadow: 8px 8px 18px 0px rgb(254 76 28 / 30%);
+	text-decoration: none;
+	font-size: 20px;
+	border-radius: 2rem;
+	transition: all 0.20s ease;
+	border: none;
+}
+.education-header .button-anchor a:hover{
+	background-color: rgb(255, 255, 255);
+	color: #fe4c1c;
+	transform: translate(0, -10px);
+}
+/*education section css ends*/
+/*get-started css starts*/
+.get-started{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.get-started img{
+	width: 400px;
+}
+.get-started .started-wrapper{
+	background-color: #fff;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 20px;
+	transition: 0.20s;
+}
+.get-started .started-wrapper:hover{
+	box-shadow: 8px 8px 30px 0px rgb(42 67 113 / 15%);
+}
+.get-started .started-wrapper img{
+	width: 300px;
+}
+.get-started .signup-image, 
+.get-started .login-image, 
+.get-started .class-image, 
+.get-started .join-class{
+	height: 350px;
+}
+/*get-started css ends*/

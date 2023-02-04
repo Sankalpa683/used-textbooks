@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+	margin:  0px;
+	padding-top:  60px;
+    background-color: #E5E8E8;
+    font-family: 'Roboto', sans-serif;
+   	min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#myTopnav{
+	/*display: none;*/
+	display: flex;
+	justify-content: space-around;
+	color: #3880EC;
+	background-color: #fff;
+  /*overflow: hidden;*/
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+  
+}
+.topnav{
+	/*display: none;*/
+	display: flex;
+	justify-content: space-around;
+	color: #3880EC;
+	background-color: #fff;
+  /*overflow: hidden;*/
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		/*position: fixed;
+		*//*top: 0;*/
+	/*	width: 100%;
+		z-index: 1;
+  */
+}
+
+
+.topnav a{
+	display: flex;
+  	justify-content: space-around;
+  float: left;
+  display: block;
+  color: #3880EC;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+	cursor: pointer;
+	font-size: 1.3rem;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+@media screen and (max-width:  855px){
+	.topnav{
+		
+
+	}
+	body{
+		/*padding-top: 40px;*/
+		/*padding-bottom: 40px;*/
+	}
+}
+/*
+/*navbar starts*/
+/*detail section starts*/
+.checkout{
+	background-color: #fff;
+
+	/*box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;*/
+}
+.detail .detail-image{
+	/*background-color: red;*/
+}
+.detail .detail-image img{
+	width: 90%;
+	/*height: auto;*/
+	border-radius: 0.2rem;
+}
+.detail .detail-texts{
+	/*background-color: red;*/
+	/*padding: 2rem 6rem;*/
+	width: 30%;
+}
+@media screen and (max-width:  891px){
+	.detail .detail-texts{
+		width: 100%;	
+		padding-bottom: 40px;
+	}
+}
+.checkout .detail-buttons{
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 40px;
+}
+.checkout .detail-buttons button{
+	padding: 0.7rem 2rem;
+	border-radius: 0.3rem;
+	border:  none;
+	cursor: pointer;
+	font-size: 1.2rem;
+}
+.checkout .detail-buttons .button-buy button{
+	background-color: #3880EC;
+	color:  #fff;
+}
+.checkout .detail-buttons .button-cancel button{
+	border: 0.4px solid #c6f6d5;
+}
+.form {
+  padding: 30px 40px; 
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-control.success input {
+  border-color: #2ecc71;
+}
+
+.form-control.error input {
+  border-color: #e74c3c;
+}
+
+.form-control i {
+  visibility: hidden;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+.form-control.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.form-control small {
+  color: #e74c3c;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+.form button {
+  background-color: #8e44ad;
+  border: 2px solid #8e44ad;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/*detail section ends*/
+
+/*footer starts*/
+.footer{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	background-color: #fff;
+	padding: 1rem;
+	bottom: 0px;
+	margin-top: auto;
+}
+.footer p{
+	font-size: 1.4rem;
+}
+.footer span{
+	color: #3498DB;
+}
+.footer .footer-links a{
+	text-decoration: none;
+	color: #566573;
+	font-size: 1.4rem;
+	margin: 0rem 1rem;
+}
+/*footer ends*/
