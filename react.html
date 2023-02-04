@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		#reactions {
+  display: flex;
+}
+
+.reaction {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+	</style>
+</head>
+<body>
+	<div id="reactions">
+  <span class="reaction" data-emoji="😍">Love</span>
+  <span class="reaction" data-emoji="😆">Laugh</span>
+  <span class="reaction" data-emoji="😮">Surprise</span>
+  <span class="reaction" data-emoji="😢">Sad</span>
+  <span class="reaction" data-emoji="😠">Angry</span>
+</div>
+<p id="selected-reaction"></p>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(document).ready(function() {
+  $('.reaction').click(function() {
+    var emoji = $(this).data('emoji');
+    $('#selected-reaction').text(emoji);
+  });
+});
+
+</script>
+</html>
